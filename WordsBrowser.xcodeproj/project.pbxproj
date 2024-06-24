@@ -11,6 +11,7 @@
 		3C7EEAAD2C29294700862106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7EEAAC2C29294700862106 /* ContentView.swift */; };
 		3C7EEAAF2C29294800862106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C7EEAAE2C29294800862106 /* Assets.xcassets */; };
 		3C7EEAB22C29294800862106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C7EEAB12C29294800862106 /* Preview Assets.xcassets */; };
+		3C7EEABB2C292E1800862106 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3C7EEAB12C29294800862106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C7EEAB82C2929C800862106 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		3C7EEAB92C292A8F00862106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				3C7EEAB92C292A8F00862106 /* Info.plist */,
 				3C7EEAAA2C29294700862106 /* WordsBrowserApp.swift */,
 				3C7EEAAC2C29294700862106 /* ContentView.swift */,
+				3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */,
 				3C7EEAB82C2929C800862106 /* Config.xcconfig */,
 				3C7EEAAE2C29294800862106 /* Assets.xcassets */,
 				3C7EEAB02C29294800862106 /* Preview Content */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7EEAAD2C29294700862106 /* ContentView.swift in Sources */,
+				3C7EEABB2C292E1800862106 /* LibraryViewModel.swift in Sources */,
 				3C7EEAAB2C29294700862106 /* WordsBrowserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
