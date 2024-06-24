@@ -13,6 +13,7 @@
 		3C7EEAB22C29294800862106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C7EEAB12C29294800862106 /* Preview Assets.xcassets */; };
 		3C7EEABB2C292E1800862106 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */; };
 		3C7EEABD2C29361200862106 /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7EEABC2C29361200862106 /* AddWordView.swift */; };
+		3C7EEABF2C293DE800862106 /* WordAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7EEABE2C293DE800862106 /* WordAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3C7EEAB92C292A8F00862106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		3C7EEABC2C29361200862106 /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
+		3C7EEABE2C293DE800862106 /* WordAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3C7EEABA2C292E1800862106 /* LibraryViewModel.swift */,
 				3C7EEAAC2C29294700862106 /* ContentView.swift */,
 				3C7EEABC2C29361200862106 /* AddWordView.swift */,
+				3C7EEABE2C293DE800862106 /* WordAPI.swift */,
 				3C7EEAB82C2929C800862106 /* Config.xcconfig */,
 				3C7EEAAE2C29294800862106 /* Assets.xcassets */,
 				3C7EEAB02C29294800862106 /* Preview Content */,
@@ -151,6 +154,7 @@
 				3C7EEAAD2C29294700862106 /* ContentView.swift in Sources */,
 				3C7EEABB2C292E1800862106 /* LibraryViewModel.swift in Sources */,
 				3C7EEAAB2C29294700862106 /* WordsBrowserApp.swift in Sources */,
+				3C7EEABF2C293DE800862106 /* WordAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
