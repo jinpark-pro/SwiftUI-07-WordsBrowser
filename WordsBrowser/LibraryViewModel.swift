@@ -29,7 +29,7 @@ class LibraryViewModel: ObservableObject {
     }
     
     private func buildURLRequest() -> URLRequest {
-        let url = URL(string: "https://wordsapiv1.p.mashape.com/words/?random=true")!
+        let url = URL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(WordsAPISecrets.apiKey, forHTTPHeaderField: WordsAPISecrets.apiKeyHeader)
@@ -38,6 +38,7 @@ class LibraryViewModel: ObservableObject {
     }
     
     private func fetchRandomWord() async -> Word {
+        print("\(#function) is on main thread: \(Thread.isMainThread)")
         let request = buildURLRequest()
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
@@ -46,15 +47,19 @@ class LibraryViewModel: ObservableObject {
                 throw WordsAPIError.invalidServerResponse
             }
             let word = try JSONDecoder().decode(Word.self, from: data)
+            print("\(#function) is on main thread: \(Thread.isMainThread)")
             return word
         } catch {
             return Word.empty
         }
     }
     
+    @MainActor
     func refresh() async {
+        print("\(#function) is on main thread BEFORE await: \(Thread.isMainThread)")
         let result = await fetchRandomWord()
         randomWord = result.word
+        print("\(#function) is on main thread AFTER await: \(Thread.isMainThread)")
     }
     
     func addFavorite(_ word: String) {
