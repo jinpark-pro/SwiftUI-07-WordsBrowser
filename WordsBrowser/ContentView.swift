@@ -33,26 +33,31 @@ struct ContentView: View {
     @State var isAddNewWordDialogPresented = false
     
     var body: some View {
-        List {
-            SectionView("Random word", words: [viewModel.randomWord])
-            SectionView("Peter's Tips", words: viewModel.filteredTips)
-            SectionView("My favorites", words: viewModel.filteredFavorites)
-        }
-        .searchable(text: $viewModel.searchText)
-        .textInputAutocapitalization(.never)
-        .navigationTitle("Library")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: {
-                    isAddNewWordDialogPresented.toggle()
-                }) {
-                    Image(systemName: "plus")
+        NavigationStack {
+            List {
+                SectionView("Random word", words: [viewModel.randomWord])
+                SectionView("Peter's Tips", words: viewModel.filteredTips)
+                SectionView("My favorites", words: viewModel.filteredFavorites)
+            }
+            .searchable(text: $viewModel.searchText)
+            .textInputAutocapitalization(.never)
+            .navigationTitle("Library")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: {
+                        isAddNewWordDialogPresented.toggle()
+                    }) {
+                        Image(systemName: "plus")
+                    }
                 }
             }
-        }
-        .sheet(isPresented: $isAddNewWordDialogPresented) {
-            NavigationStack {
-                AddWordView()
+            .sheet(isPresented: $isAddNewWordDialogPresented) {
+                NavigationStack {
+                    AddWordView { word in
+                        print(word)
+                        viewModel.addFavorite(word)
+                    }
+                }
             }
         }
     }
