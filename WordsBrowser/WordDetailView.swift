@@ -21,7 +21,7 @@ struct WordDetailView: View {
                         ForEach(viewModel.definitions) { definition in
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("(\(definition.partOfSpeech)")
+                                    Text("(\(definition.partOfSpeech))")
                                         .font(.caption)
                                     Text(definition.definition)
                                 }
@@ -34,6 +34,9 @@ struct WordDetailView: View {
             }
         }
         .navigationTitle(word)
+        .task {
+            await viewModel.executeQuery(for: word)
+        }
     }
 }
 

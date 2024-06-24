@@ -22,7 +22,9 @@ struct SectionView: View {
                 Text("(No items match your filter criteria)")
             } else {
                 ForEach(words, id: \.self) { word in
-                    Text(word)
+                    NavigationLink(destination: WordDetailView(word: word)) {
+                        Text(word)
+                    }
                 }
             }
         }
@@ -33,35 +35,33 @@ struct ContentView: View {
     @State var isAddNewWordDialogPresented = false
     
     var body: some View {
-        NavigationStack {
-            List {
-                SectionView("Random word", words: [viewModel.randomWord])
-                SectionView("Peter's Tips", words: viewModel.filteredTips)
-                SectionView("My favorites", words: viewModel.filteredFavorites)
-            }
-            .searchable(text: $viewModel.searchText)
-            .textInputAutocapitalization(.never)
-            .navigationTitle("Library")
-            .refreshable {
-                print("\(#function) is on main thread BEFORE await: \(Thread.isMainThread)")
-                await viewModel.refresh()
-                print("\(#function) is on main thread After await: \(Thread.isMainThread)")
-            }
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button(action: {
-                        isAddNewWordDialogPresented.toggle()
-                    }) {
-                        Image(systemName: "plus")
-                    }
+        List {
+            SectionView("Random word", words: [viewModel.randomWord])
+            SectionView("Peter's Tips", words: viewModel.filteredTips)
+            SectionView("My favorites", words: viewModel.filteredFavorites)
+        }
+        .searchable(text: $viewModel.searchText)
+        .textInputAutocapitalization(.never)
+        .navigationTitle("Library")
+        .refreshable {
+            print("\(#function) is on main thread BEFORE await: \(Thread.isMainThread)")
+            await viewModel.refresh()
+            print("\(#function) is on main thread After await: \(Thread.isMainThread)")
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    isAddNewWordDialogPresented.toggle()
+                }) {
+                    Image(systemName: "plus")
                 }
             }
-            .sheet(isPresented: $isAddNewWordDialogPresented) {
-                NavigationStack {
-                    AddWordView { word in
-                        print(word)
-                        viewModel.addFavorite(word)
-                    }
+        }
+        .sheet(isPresented: $isAddNewWordDialogPresented) {
+            NavigationStack {
+                AddWordView { word in
+                    print(word)
+                    viewModel.addFavorite(word)
                 }
             }
         }
